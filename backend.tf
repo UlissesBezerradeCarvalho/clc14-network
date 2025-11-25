@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "clc14-ulisses-terraform"  
+    bucket = "ulisses-terraform-clc14"  
     key    = "network/terra.tfstate"
     region = "us-east-1"
     use_lockfile = true
