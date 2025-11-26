@@ -22,4 +22,3 @@ output "subnet_private_1b" {
   description = "Id da Private Subnet 1b"
   value       = aws_subnet.private_subnet_1b.id
 }
-}
