@@ -1,51 +1,26 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "6.20.0"
-    }
-  }
-}
-
-provider "aws" {
-  # Configuration options
-}
 
 variable "vpc_name" {
   type = string
-  default = "vpc-terraformc"
+  default = "vpc-terraform-V2"
 }
 
 resource "aws_vpc" "minha_vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = var.vpc_name
+      }
 }
 
-resource "aws_default_security_group" "default" {
-  vpc_id = vpc-0d122e9e8c4bb9bac
-
--  ingress {
--    protocol  = "-1"
--    self      = true
--    from_port = 0
--    to_port   = 0
--  }
-
--  egress {
--    from_port   = 0
--    to_port     = 0
--    protocol    = "-1"
--    cidr_blocks = ["0.0.0.0/0"]
--  }
-}
 
 ## Cria subnet privada na us-east-1a
 resource "aws_subnet" "private_subnet_1a" {
   vpc_id            = aws_vpc.minha_vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "us-east-1a"
-
   tags = {
-    Name = "priv-subnet-1a"
+    Name = "priv-subnet-1A"
   }
 }
 
