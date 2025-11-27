@@ -1,7 +1,19 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "6.20.0"
+    }
+  }
+}
+
+provider "aws" {
+  # Configuration options
+}
 
 variable "vpc_name" {
   type = string
-  default = "vpc-terraform-V2"
+  default = "vpc-terraformc"
 }
 
 resource "aws_vpc" "minha_vpc" {
@@ -10,17 +22,17 @@ resource "aws_vpc" "minha_vpc" {
 
   tags = {
     Name = var.vpc_name
-      }
+  }
 }
-
 
 ## Cria subnet privada na us-east-1a
 resource "aws_subnet" "private_subnet_1a" {
   vpc_id            = aws_vpc.minha_vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "us-east-1a"
+
   tags = {
-    Name = "priv-subnet-1A"
+    Name = "priv-subnet-1a"
   }
 }
 
