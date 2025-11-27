@@ -8,7 +8,7 @@ resource "aws_flow_log" "example" {
   iam_role_arn    = "arn"
   log_destination = "log"
   traffic_type    = "ALL"
-+ vpc_id          = aws_vpc.ok_vpc.id
++ vpc_id          = vpc-0d122e9e8c4bb9bac
 }
 
 resource "aws_vpc" "ok_vpc" {
