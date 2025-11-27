@@ -13,8 +13,6 @@ resource "aws_vpc" "minha_vpc" {
       }
 }
 
-}
-
 ## Cria subnet privada na us-east-1a
 resource "aws_subnet" "private_subnet_1a" {
   vpc_id            = aws_vpc.minha_vpc.id
