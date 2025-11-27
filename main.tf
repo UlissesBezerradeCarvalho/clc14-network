@@ -4,7 +4,7 @@ variable "vpc_name" {
   type = string
   default = "vpc-terraformc"
 }
-resource "aws_flow_log" "example" {
+resource  {
   iam_role_arn    = "arn"
   log_destination = "log"
   traffic_type    = "ALL"
