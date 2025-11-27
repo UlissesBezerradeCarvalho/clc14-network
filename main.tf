@@ -7,10 +7,8 @@ variable "vpc_name" {
 resource "aws_vpc" "minha_vpc" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
-
-  tags = {
-    Name = var.vpc_name
-      }
+}
+  
 
 
 ## Cria subnet privada na us-east-1a
