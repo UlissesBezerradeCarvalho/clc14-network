@@ -11,7 +11,7 @@ resource "aws_vpc" "minha_vpc" {
   tags = {
     Name = var.vpc_name
       }
-}
+
 
 ## Cria subnet privada na us-east-1a
 resource "aws_subnet" "private_subnet_1a" {
