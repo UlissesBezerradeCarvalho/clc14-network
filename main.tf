@@ -17,12 +17,25 @@ variable "vpc_name" {
 }
 
 resource "aws_vpc" "minha_vpc" {
-  cidr_block       = "10.0.0.0/16"
-  instance_tenancy = "default"
+  cidr_block = "10.0.0.0/16"
+}
 
-  tags = {
-    Name = var.vpc_name
-  }
+resource "aws_default_security_group" "default" {
+  vpc_id = vpc-0d122e9e8c4bb9bac
+
+-  ingress {
+-    protocol  = "-1"
+-    self      = true
+-    from_port = 0
+-    to_port   = 0
+-  }
+
+-  egress {
+-    from_port   = 0
+-    to_port     = 0
+-    protocol    = "-1"
+-    cidr_blocks = ["0.0.0.0/0"]
+-  }
 }
 
 ## Cria subnet privada na us-east-1a
